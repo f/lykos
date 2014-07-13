@@ -77,16 +77,16 @@ GAME_MODES = {}
 AWAY = ['services.', 'services.int']  # cloaks of people who are away.
 SIMPLE_NOTIFY = []  # cloaks of people who !simple, who want everything /notice'd
 
-ROLE_INDICES = {0 : "seer",
-                1 : "wolf",
-                2 : "cursed villager",
-                3 : "village drunk",
-                4 : "harlot",
-                5 : "traitor",
-                6 : "gunner",
-                7 : "werecrow",
-                8 : "guardian angel",
-                9 : "detective"}
+ROLE_INDICES = {0 : "gozcu",
+                1 : "kurt",
+                2 : "lanetli koylu",
+                3 : "sarhos koylu",
+                4 : "fahise",
+                5 : "hain",
+                6 : "avci",
+                7 : "karga",
+                8 : "koruyucu melek",
+                9 : "dedektif"}
 
 INDEX_OF_ROLE = dict((v,k) for k,v in ROLE_INDICES.items())
 
@@ -113,9 +113,9 @@ PING_IN = []  # cloaks of users who have opted in for ping
 is_role = lambda plyr, rol: rol in ROLES and plyr in ROLES[rol]
 
 def plural(role):
-    if role == "wolf": return "wolves"
-    elif role == "person": return "people"
-    else: return role + "s"
+    if role == "kurt": return "kurtlar"
+    elif role == "kisi": return "kisiler"
+    else: return role + ""
 
 def list_players():
     pl = []
@@ -133,8 +133,8 @@ def list_players_and_roles():
 get_role = lambda plyr: list_players_and_roles()[plyr]
 
 def get_reveal_role(nick):
-    if HIDDEN_TRAITOR and get_role(nick) == "traitor":
-        return "villager"
+    if HIDDEN_TRAITOR and get_role(nick) == "hain":
+        return "koylu"
     else:
         return get_role(nick)
 
